@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.joanes.calculadorabasica.CalculadoraBasica"
+    android:focusable="false">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/PrimeiroNumero"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/SegundoNumero"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/edTprimeiro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="5"
+        android:id="@+id/edTprimeiro"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/edTSegundo"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/edTprimeiro"
+        android:layout_alignEnd="@+id/edTprimeiro"
+        android:enabled="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/edTSegundo">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Somar"
+                android:id="@+id/rBSoma"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rBDividir"
+                android:layout_alignParentLeft="true"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dividir"
+                android:id="@+id/rBDividir"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rBSubtrair"
+                android:layout_alignParentLeft="true"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Multiplicar"
+                android:id="@+id/rBMultiplicar"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/rBSoma"
+                android:layout_alignParentLeft="true"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subtrair"
+                android:id="@+id/rBSubtrair"
+                android:layout_below="@+id/edTSegundo"
+                android:layout_toRightOf="@+id/btnCalcular"
+                android:layout_toEndOf="@+id/btnCalcular"
+                android:checked="false" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/tVSaida"
+            android:layout_gravity="center_horizontal"
+            android:enabled="true"
+            android:singleLine="false"
+            android:textAlignment="center"
+            android:textSize="@dimen/abc_action_button_min_width_overflow_material"
+            android:width="@dimen/abc_action_bar_stacked_tab_max_width"
+            android:background="#25ccd8"
+            android:textColor="#684949" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Resultado"
+            android:id="@+id/tvresultado"
+            android:layout_above="@+id/btnCalcular"
+            android:layout_alignLeft="@+id/btnCalcular"
+            android:layout_alignStart="@+id/btnCalcular"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calcular"
+            android:id="@+id/btnCalcular"
+            android:onClick="onClick"
+            android:layout_above="@+id/btnLimpar"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/limpar"
+            android:id="@+id/btnLimpar"
+            android:nestedScrollingEnabled="false"
+            android:onClick="Limpar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/btnCalcular"
+            android:layout_alignStart="@+id/btnCalcular"
+            android:layout_marginBottom="40dp"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</RelativeLayout>
